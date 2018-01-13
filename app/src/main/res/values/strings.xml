@@ -1,0 +1,44 @@
+<!--
+  ~ Copyright 2018 75py
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">Temporary Brightness</string>
+    <string name="app_name_short">Tmp Brightness</string>
+
+    <string name="request_overlay_permisson">Allow "display over other apps"</string>
+    <string name="overlay_permission_is_allowed">"display over other apps" is Allowed</string>
+
+    <string name="tile_label">Override screen brightness temporary</string>
+
+    <string name="h_how_to_set_up">How to set up</string>
+    <string name="p_how_to_set_up">How to add \"Temporary Brightness\" button to your Quick Settings panel.</string>
+    <string name="h_allow_permission">1. Allow "display over other apps"</string>
+    <string name="p_allow_permission">Click the button and open the settings screen, allow \"display over other apps\".</string>
+    <string name="h_edit_qs">2. Edit your Quick Settings panel</string>
+    <string name="p_edit_qs">Swipe down the top of the screen twice.\nAnd tap \"Edit\".</string>
+    <string name="h_drag_and_drop">3. Drag and drop</string>
+    <string name="p_drag_and_drop">Long press the tile of \"Temporary Brightness\" and drag it to the panel.</string>
+
+    <string name="h_how_to_use">How to use</string>
+    <string name="h_expand_qs">1. Expand your Quick Settings panel</string>
+    <string name="h_tap_qs_icon">2. Tap \"Temporary Brightness\" icon</string>
+    <string name="p_tap_qs_icon">Then start to override the brightness of your screen.\nIf you want to adjust the brightness, touch the seekbar.</string>
+    <string name="p_tap_qs_icon2">When you tap the Quick Settings icon again or turn off your screen, the overriding of the brightness is canceled.</string>
+
+    <string name="action_more" translatable="false">More</string>
+    <string name="open_source_license" translatable="false">Open source license</string>
+
+</resources>

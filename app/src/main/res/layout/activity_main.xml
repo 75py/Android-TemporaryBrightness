@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2018 75py
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="canDrawOverlays"
+            type="boolean" />
+
+        <variable
+            name="expandHowToSetUp"
+            type="boolean" />
+
+        <variable
+            name="expandHowToUse"
+            type="boolean" />
+
+        <variable
+            name="maxImageWidth"
+            type="int" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_narrow">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/indent_1">
+
+            <TextView
+                android:id="@+id/text_h_how_to_set_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/h_how_to_set_up"
+                android:textAppearance="@style/MyTextAppearance.H1" />
+
+            <TextView
+                android:id="@+id/text_p_how_to_set_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/indent_1"
+                android:text="@string/p_how_to_set_up"
+                android:textAppearance="@style/MyTextAppearance.H1.P" />
+
+            <LinearLayout
+                android:id="@+id/parent_how_to_set_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{expandHowToSetUp ? View.VISIBLE : View.GONE}">
+
+                <TextView
+                    android:id="@+id/text_h_allow_permission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_wide"
+                    android:text="@string/h_allow_permission"
+                    android:textAppearance="@style/MyTextAppearance.H2" />
+
+                <TextView
+                    android:id="@+id/text_p_allow_permission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/indent_1"
+                    android:text="@string/p_allow_permission"
+                    android:textAppearance="@style/MyTextAppearance.H2.P" />
+
+                <Button
+                    android:id="@+id/btn_requestPermission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/indent_1"
+                    android:layout_marginStart="@dimen/indent_1"
+                    android:enabled="@{!canDrawOverlays}"
+                    android:onClick="onClick"
+                    android:text="@{canDrawOverlays ? @string/overlay_permission_is_allowed : @string/request_overlay_permisson}"
+                    tools:text="@string/overlay_permission_is_allowed" />
+
+                <TextView
+                    android:id="@+id/text_h_edit_qs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_wide"
+                    android:text="@string/h_edit_qs"
+                    android:textAppearance="@style/MyTextAppearance.H2" />
+
+                <TextView
+                    android:id="@+id/text_p_edit_qs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/indent_1"
+                    android:text="@string/p_edit_qs"
+                    android:textAppearance="@style/MyTextAppearance.H2.P" />
+
+                <ImageView
+                    android:id="@+id/image_edit_qs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_narrow"
+                    android:layout_marginEnd="@dimen/margin_wide2"
+                    android:layout_marginStart="@dimen/margin_wide2"
+                    android:layout_marginTop="@dimen/margin_narrow"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    android:maxWidth="@{maxImageWidth}"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/qs_edit" />
+
+                <TextView
+                    android:id="@+id/text_h_drag_and_drop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_wide"
+                    android:text="@string/h_drag_and_drop"
+                    android:textAppearance="@style/MyTextAppearance.H2" />
+
+                <TextView
+                    android:id="@+id/text_p_drag_and_drop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/indent_1"
+                    android:text="@string/p_drag_and_drop"
+                    android:textAppearance="@style/MyTextAppearance.H2.P" />
+
+                <ImageView
+                    android:id="@+id/image_drag_and_drop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_narrow"
+                    android:layout_marginEnd="@dimen/margin_wide2"
+                    android:layout_marginStart="@dimen/margin_wide2"
+                    android:layout_marginTop="@dimen/margin_narrow"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    android:maxWidth="@{maxImageWidth}"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/qs_drag" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/text_h_how_to_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_wide"
+                android:gravity="center_vertical"
+                android:text="@string/h_how_to_use"
+                android:textAppearance="@style/MyTextAppearance.H1" />
+
+            <LinearLayout
+                android:id="@+id/parent_how_to_use"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{expandHowToUse ? View.VISIBLE : View.GONE}">
+
+                <TextView
+                    android:id="@+id/text_h_expand_qs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_wide"
+                    android:text="@string/h_expand_qs"
+                    android:textAppearance="@style/MyTextAppearance.H2" />
+
+                <TextView
+                    android:id="@+id/text_h_tap_qs_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_wide"
+                    android:text="@string/h_tap_qs_icon"
+                    android:textAppearance="@style/MyTextAppearance.H2" />
+
+                <ImageView
+                    android:id="@+id/image_tap_qs_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_narrow"
+                    android:layout_marginEnd="@dimen/margin_wide2"
+                    android:layout_marginStart="@dimen/margin_wide2"
+                    android:layout_marginTop="@dimen/margin_narrow"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    android:maxWidth="@{maxImageWidth}"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/qt_tap_icon" />
+
+                <TextView
+                    android:id="@+id/text_p_tap_qs_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/indent_1"
+                    android:text="@string/p_tap_qs_icon"
+                    android:textAppearance="@style/MyTextAppearance.H2.P" />
+
+                <ImageView
+                    android:id="@+id/image_tap_qs_icon2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/margin_narrow"
+                    android:layout_marginEnd="@dimen/margin_wide2"
+                    android:layout_marginStart="@dimen/margin_wide2"
+                    android:layout_marginTop="@dimen/margin_narrow"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@null"
+                    android:maxWidth="@{maxImageWidth}"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/qt_tap_icon2" />
+
+
+                <TextView
+                    android:id="@+id/text_p_tap_qs_icon2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/indent_1"
+                    android:text="@string/p_tap_qs_icon2"
+                    android:textAppearance="@style/MyTextAppearance.H2.P" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,40 @@
+<!--
+  ~ Copyright 2018 75py
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~    http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">Temporary Brightness</string>
+
+    <string name="request_overlay_permisson">「他のアプリの上に重ねて表示」を許可</string>
+    <string name="overlay_permission_is_allowed">許可済み</string>
+
+    <string name="tile_label">輝度を一時的に上書きする</string>
+
+    <string name="h_how_to_set_up">設定方法</string>
+    <string name="p_how_to_set_up">「Temporary Brightness」のアイコンをクイック設定パネルに追加します。</string>
+    <string name="h_allow_permission">1. 「他のアプリの上に重ねて表示」を許可</string>
+    <string name="p_allow_permission">設定画面を開き、「他のアプリの上に重ねて表示」を許可します。</string>
+    <string name="h_edit_qs">2. クイック設定パネルを編集</string>
+    <string name="p_edit_qs">画面上部を下方向に２回スワイプし、編集ボタンをタップします。</string>
+    <string name="h_drag_and_drop">3. ドラッグ＆ドロップ</string>
+    <string name="p_drag_and_drop">「Temporary Brightness」を長押しして、パネルにドラッグ＆ドロップします。</string>
+
+    <string name="h_how_to_use">使い方</string>
+    <string name="h_expand_qs">1. クイック設定パネルを開く</string>
+    <string name="h_tap_qs_icon">2. 「Temporary Brightness」アイコンをタップ</string>
+    <string name="p_tap_qs_icon">輝度の上書きが開始します。.\n輝度を調整する場合は、画面上部に表示されるバーを使用します。</string>
+    <string name="p_tap_qs_icon2">クイック設定パネルのアイコンをもう一度タップするか、画面を消灯すると、輝度の上書きが終了します。</string>
+
+</resources>
