@@ -40,5 +40,6 @@
 
     <string name="action_more" translatable="false">More</string>
     <string name="open_source_license" translatable="false">Open source license</string>
+    <string name="source_code" translatable="false">Source code</string>
 
 </resources>
