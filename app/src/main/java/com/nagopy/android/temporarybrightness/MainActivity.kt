@@ -16,10 +16,14 @@
 
 package com.nagopy.android.temporarybrightness
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import com.github.salomonbrys.kodein.KodeinInjector
 import com.github.salomonbrys.kodein.android.appKodein
@@ -61,6 +65,23 @@ class MainActivity : AppCompatActivity() {
         when (view.id) {
             R.id.btn_requestPermission -> overlayViewManager.requestOverlayPermission()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.activity_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.menu_license -> {
+                startActivity(Intent(this, LicenseActivity::class.java))
+            }
+            R.id.menu_source_code -> {
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/75py/Android-TemporaryBrightness")))
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

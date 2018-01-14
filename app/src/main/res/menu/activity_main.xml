@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2018 75py
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,6 +25,9 @@
             <item
                 android:id="@+id/menu_license"
                 android:title="@string/open_source_license" />
+            <item
+                android:id="@+id/menu_source_code"
+                android:title="@string/source_code" />
         </menu>
     </item>
 </menu>
