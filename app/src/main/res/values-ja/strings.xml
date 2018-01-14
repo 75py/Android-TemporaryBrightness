@@ -35,7 +35,7 @@
     <string name="h_how_to_use">使い方</string>
     <string name="h_expand_qs">1. クイック設定パネルを開く</string>
     <string name="h_tap_qs_icon">2. 「Temporary Brightness」アイコンをタップ</string>
-    <string name="p_tap_qs_icon">輝度の上書きが開始します。.\n輝度を調整する場合は、画面上部に表示されるバーを使用します。</string>
+    <string name="p_tap_qs_icon">輝度の上書きが開始します。\n輝度を調整する場合は、画面上部に表示されるバーを使用します。</string>
     <string name="p_tap_qs_icon2">クイック設定パネルのアイコンをもう一度タップするか、画面を消灯すると、輝度の上書きが終了します。</string>
 
 </resources>
