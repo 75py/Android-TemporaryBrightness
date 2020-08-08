@@ -52,7 +52,7 @@ class TemporaryBrightnessTileService : TileService() {
                 tile.state = STATE_ACTIVE
 
                 // Close the Quick Settings panel
-                startActivityAndCollapse(Intent(this, DummyActivity::class.java))
+                startActivityAndCollapse(Intent(this, DummyActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
             }
         }
 
