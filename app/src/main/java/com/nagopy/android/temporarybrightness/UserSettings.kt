@@ -18,7 +18,7 @@ package com.nagopy.android.temporarybrightness
 
 import android.content.SharedPreferences
 
-class UserSettings(val sharedPreferences: SharedPreferences) {
+class UserSettings(private val sharedPreferences: SharedPreferences) {
 
     fun getOverrideBrightness() = sharedPreferences.getInt(KEY_OVERRIDE_BRIGHTNESS, 192)
 
@@ -27,6 +27,6 @@ class UserSettings(val sharedPreferences: SharedPreferences) {
     }
 
     companion object {
-        val KEY_OVERRIDE_BRIGHTNESS = "OVERRIDE_BRIGHTNESS"
+        const val KEY_OVERRIDE_BRIGHTNESS = "OVERRIDE_BRIGHTNESS"
     }
 }

@@ -40,10 +40,10 @@ class App : Application(), KodeinAware {
         OverlayViewManager.init(this)
     }
 
-    fun resetInjection() {
+    private fun resetInjection() {
         kodein.clear()
         kodein.addImport(appDependencies(), true)
-        App.injector = KodeinInjector().apply { inject(kodein) }
+        injector = KodeinInjector().apply { inject(kodein) }
     }
 
     private fun appDependencies(): Kodein.Module {

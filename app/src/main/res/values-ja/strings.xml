@@ -18,7 +18,7 @@
     <string name="app_name">Temporary Brightness</string>
     <string name="app_name_short">Tmp Brightness</string>
 
-    <string name="request_overlay_permisson">「他のアプリの上に重ねて表示」を許可</string>
+    <string name="request_overlay_permission">「他のアプリの上に重ねて表示」を許可</string>
     <string name="overlay_permission_is_allowed">許可済み</string>
 
     <string name="tile_label">輝度を一時的に上書きする</string>

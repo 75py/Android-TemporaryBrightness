@@ -18,7 +18,7 @@
     <string name="app_name">Temporary Brightness</string>
     <string name="app_name_short">Tmp Brightness</string>
 
-    <string name="request_overlay_permisson">Allow "display over other apps"</string>
+    <string name="request_overlay_permission">Allow "display over other apps"</string>
     <string name="overlay_permission_is_allowed">"display over other apps" is Allowed</string>
 
     <string name="tile_label">Override screen brightness temporary</string>

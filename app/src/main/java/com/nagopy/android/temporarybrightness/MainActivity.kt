@@ -33,11 +33,11 @@ import com.nagopy.android.temporarybrightness.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    val injector = KodeinInjector()
-    val overlayViewManager: OverlayViewManager by injector.instance()
-    val handler: Handler by injector.instance()
+    private val injector = KodeinInjector()
+    private val overlayViewManager: OverlayViewManager by injector.instance()
+    private val handler: Handler by injector.instance()
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

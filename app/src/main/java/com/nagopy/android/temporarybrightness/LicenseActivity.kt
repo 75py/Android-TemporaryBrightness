@@ -22,7 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class LicenseActivity : AppCompatActivity() {
 
-    lateinit var webView: WebView
+    private lateinit var webView: WebView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
