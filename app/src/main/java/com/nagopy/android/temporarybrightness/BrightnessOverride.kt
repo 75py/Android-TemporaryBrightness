@@ -28,16 +28,20 @@ import android.widget.SeekBar
 import com.nagopy.android.overlayviewmanager.OverlayViewManager
 import com.nagopy.android.temporarybrightness.databinding.ViewOverrideBinding
 import timber.log.Timber
+import javax.inject.Inject
 
-class BrightnessOverride(private val context: Context
-                         , private val userSettings: UserSettings
-                         , private val handler: Handler
-                         , private val overlayViewManager: OverlayViewManager) : SeekBar.OnSeekBarChangeListener {
+class BrightnessOverride @Inject constructor(
+        private val context: Context,
+        private val userSettings: UserSettings,
+        private val handler: Handler,
+        private val overlayViewManager: OverlayViewManager
+) : SeekBar.OnSeekBarChangeListener {
 
     private val binding = ViewOverrideBinding.inflate(LayoutInflater.from(context)).apply {
         onSeekBarChangeListener = this@BrightnessOverride
         brightness = userSettings.getOverrideBrightness()
     }
+
     val overlayView = overlayViewManager.newOverlayView(binding.root)
             .setWidth(overlayViewManager.displayWidth)
             .setTouchable(true)

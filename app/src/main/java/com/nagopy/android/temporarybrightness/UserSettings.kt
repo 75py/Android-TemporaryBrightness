@@ -17,8 +17,11 @@
 package com.nagopy.android.temporarybrightness
 
 import android.content.SharedPreferences
+import javax.inject.Inject
 
-class UserSettings(private val sharedPreferences: SharedPreferences) {
+class UserSettings @Inject constructor(
+        private val sharedPreferences: SharedPreferences
+) {
 
     fun getOverrideBrightness() = sharedPreferences.getInt(KEY_OVERRIDE_BRIGHTNESS, 192)
 

@@ -17,22 +17,15 @@
 package com.nagopy.android.temporarybrightness
 
 import android.app.Application
-import android.content.SharedPreferences
-import android.os.Handler
-import android.os.Looper
-import android.preference.PreferenceManager
-import com.github.salomonbrys.kodein.*
-import com.github.salomonbrys.kodein.conf.ConfigurableKodein
 import com.nagopy.android.overlayviewmanager.OverlayViewManager
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
-class App : Application(), KodeinAware {
-
-    override val kodein = ConfigurableKodein(mutable = true)
+@HiltAndroidApp
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        resetInjection()
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
@@ -40,23 +33,4 @@ class App : Application(), KodeinAware {
         OverlayViewManager.init(this)
     }
 
-    private fun resetInjection() {
-        kodein.clear()
-        kodein.addImport(appDependencies(), true)
-        injector = KodeinInjector().apply { inject(kodein) }
-    }
-
-    private fun appDependencies(): Kodein.Module {
-        return Kodein.Module(allowSilentOverride = true) {
-            bind<Handler>() with singleton { Handler(Looper.getMainLooper()) }
-            bind<SharedPreferences>() with singleton { PreferenceManager.getDefaultSharedPreferences(this@App) }
-            bind<OverlayViewManager>() with singleton { OverlayViewManager.getInstance() }
-            bind<UserSettings>() with singleton { UserSettings(instance()) }
-            bind<BrightnessOverride>() with singleton { BrightnessOverride(this@App, instance(), instance(), instance()) }
-        }
-    }
-
-    companion object {
-        lateinit var injector: KodeinInjector
-    }
 }

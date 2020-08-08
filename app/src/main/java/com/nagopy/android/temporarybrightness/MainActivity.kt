@@ -25,23 +25,24 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.github.salomonbrys.kodein.KodeinInjector
-import com.github.salomonbrys.kodein.android.appKodein
-import com.github.salomonbrys.kodein.instance
 import com.nagopy.android.overlayviewmanager.OverlayViewManager
 import com.nagopy.android.temporarybrightness.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val injector = KodeinInjector()
-    private val overlayViewManager: OverlayViewManager by injector.instance()
-    private val handler: Handler by injector.instance()
+    @Inject
+    lateinit var overlayViewManager: OverlayViewManager
+
+    @Inject
+    lateinit var handler: Handler
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        injector.inject(appKodein())
 
         if (!overlayViewManager.canDrawOverlays()) {
             overlayViewManager.showPermissionRequestDialog(supportFragmentManager, R.string.app_name)
