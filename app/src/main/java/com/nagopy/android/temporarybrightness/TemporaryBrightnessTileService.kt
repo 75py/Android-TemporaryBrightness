@@ -27,10 +27,10 @@ import timber.log.Timber
 
 class TemporaryBrightnessTileService : TileService() {
 
-    val injector = KodeinInjector()
+    private val injector = KodeinInjector()
 
-    val overlayViewManager: OverlayViewManager by injector.instance()
-    val brightnessOverride: BrightnessOverride by injector.instance()
+    private val overlayViewManager: OverlayViewManager by injector.instance()
+    private val brightnessOverride: BrightnessOverride by injector.instance()
 
 
     override fun onCreate() {
@@ -52,7 +52,7 @@ class TemporaryBrightnessTileService : TileService() {
                 tile.state = STATE_ACTIVE
 
                 // Close the Quick Settings panel
-                startActivityAndCollapse(Intent(this, DummyActivity::class.java))
+                startActivityAndCollapse(Intent(this, DummyActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
             }
         }
 
@@ -80,7 +80,7 @@ class TemporaryBrightnessTileService : TileService() {
         Timber.d("onStopListening")
     }
 
-    fun updateTile() {
+    private fun updateTile() {
         val tile = qsTile
         if (overlayViewManager.canDrawOverlays()) {
             if (brightnessOverride.isEnabled()) {

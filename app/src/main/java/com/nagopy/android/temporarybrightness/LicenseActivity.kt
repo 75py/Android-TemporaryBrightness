@@ -17,12 +17,12 @@
 package com.nagopy.android.temporarybrightness
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.webkit.WebView
+import androidx.appcompat.app.AppCompatActivity
 
 class LicenseActivity : AppCompatActivity() {
 
-    lateinit var webView: WebView
+    private lateinit var webView: WebView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

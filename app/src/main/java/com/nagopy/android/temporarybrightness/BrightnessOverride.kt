@@ -29,12 +29,12 @@ import com.nagopy.android.overlayviewmanager.OverlayViewManager
 import com.nagopy.android.temporarybrightness.databinding.ViewOverrideBinding
 import timber.log.Timber
 
-class BrightnessOverride(val context: Context
-                         , val userSettings: UserSettings
-                         , val handler: Handler
-                         , val overlayViewManager: OverlayViewManager) : SeekBar.OnSeekBarChangeListener {
+class BrightnessOverride(private val context: Context
+                         , private val userSettings: UserSettings
+                         , private val handler: Handler
+                         , private val overlayViewManager: OverlayViewManager) : SeekBar.OnSeekBarChangeListener {
 
-    val binding = ViewOverrideBinding.inflate(LayoutInflater.from(context)).apply {
+    private val binding = ViewOverrideBinding.inflate(LayoutInflater.from(context)).apply {
         onSeekBarChangeListener = this@BrightnessOverride
         brightness = userSettings.getOverrideBrightness()
     }
@@ -44,13 +44,13 @@ class BrightnessOverride(val context: Context
             .setAlpha(0.8f)
             .setScreenBrightness(binding.brightness / 255f)
 
-    val receiver = object : BroadcastReceiver() {
+    private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             stopOverride()
         }
     }
 
-    var isTouchingSeekBar = false
+    private var isTouchingSeekBar = false
 
     fun startOverride() {
         isTouchingSeekBar = false
@@ -91,7 +91,7 @@ class BrightnessOverride(val context: Context
         startAlphaAnimation(500, 250)
     }
 
-    fun startAlphaAnimation(duration: Long, delay: Long) {
+    private fun startAlphaAnimation(duration: Long, delay: Long) {
         overlayView.setTouchable(false).update()
         overlayView.view.animate()
                 .alpha(0f)

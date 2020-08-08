@@ -17,14 +17,14 @@
 package com.nagopy.android.temporarybrightness
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.github.salomonbrys.kodein.KodeinInjector
 import com.github.salomonbrys.kodein.android.appKodein
 import com.github.salomonbrys.kodein.instance
@@ -33,11 +33,11 @@ import com.nagopy.android.temporarybrightness.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    val injector = KodeinInjector()
-    val overlayViewManager: OverlayViewManager by injector.instance()
-    val handler: Handler by injector.instance()
+    private val injector = KodeinInjector()
+    private val overlayViewManager: OverlayViewManager by injector.instance()
+    private val handler: Handler by injector.instance()
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,8 +72,8 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.menu_license -> {
                 startActivity(Intent(this, LicenseActivity::class.java))
             }
