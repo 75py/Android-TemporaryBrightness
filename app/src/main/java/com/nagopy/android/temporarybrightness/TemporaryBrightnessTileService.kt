@@ -19,24 +19,19 @@ package com.nagopy.android.temporarybrightness
 import android.content.Intent
 import android.service.quicksettings.Tile.*
 import android.service.quicksettings.TileService
-import com.github.salomonbrys.kodein.KodeinInjector
-import com.github.salomonbrys.kodein.android.appKodein
-import com.github.salomonbrys.kodein.instance
 import com.nagopy.android.overlayviewmanager.OverlayViewManager
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class TemporaryBrightnessTileService : TileService() {
 
-    private val injector = KodeinInjector()
+    @Inject
+    lateinit var overlayViewManager: OverlayViewManager
 
-    private val overlayViewManager: OverlayViewManager by injector.instance()
-    private val brightnessOverride: BrightnessOverride by injector.instance()
-
-
-    override fun onCreate() {
-        super.onCreate()
-        injector.inject(appKodein())
-    }
+    @Inject
+    lateinit var brightnessOverride: BrightnessOverride
 
     override fun onClick() {
         Timber.d("onClick")
