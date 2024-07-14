@@ -22,7 +22,6 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.1"
     defaultConfig {
         applicationId "com.nagopy.android.temporarybrightness"
         minSdkVersion 24
