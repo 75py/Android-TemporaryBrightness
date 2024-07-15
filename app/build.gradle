@@ -14,19 +14,22 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'com.cookpad.android.licensetools'
-apply plugin: 'dagger.hilt.android.plugin'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+    id "com.google.android.gms.oss-licenses-plugin"
+}
+
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.1"
+    namespace 'com.nagopy.android.temporarybrightness'
+    compileSdk 34
     defaultConfig {
         applicationId "com.nagopy.android.temporarybrightness"
         minSdkVersion 24
-        targetSdkVersion 30
+        targetSdkVersion 34
         versionCode publish_version_code
         versionName publish_version_name
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -42,25 +45,32 @@ android {
         enabled = true
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        buildConfig true
     }
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'com.jakewharton.timber:timber:4.7.1'
-    implementation 'com.nagopy.android:overlayviewmanager:1.1.0'
-    kapt 'androidx.databinding:databinding-compiler:4.0.1'
+
+    implementation 'com.github.75py.Android-OverlayViewManager:overlayviewmanager:2.0.0'
 
     // Hilt
-    implementation "com.google.dagger:hilt-android:2.28.1-alpha"
-    kapt "com.google.dagger:hilt-android-compiler:2.28.1-alpha"
+    implementation "com.google.dagger:hilt-android:2.51.1"
+    kapt "com.google.dagger:hilt-android-compiler:2.51.1"
 
-    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.1.0'
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation 'junit:junit:4.13.2'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }

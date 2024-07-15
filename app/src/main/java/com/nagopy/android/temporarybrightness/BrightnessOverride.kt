@@ -101,7 +101,7 @@ class BrightnessOverride @Inject constructor(
                 .alpha(0f)
                 .setDuration(duration)
                 .setListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animator: Animator?) {
+                    override fun onAnimationEnd(animator: Animator) {
                         overlayView.setAlpha(0f).update()
                     }
                 })

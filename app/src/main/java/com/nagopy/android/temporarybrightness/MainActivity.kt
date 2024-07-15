@@ -25,6 +25,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.nagopy.android.overlayviewmanager.OverlayViewManager
 import com.nagopy.android.temporarybrightness.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_license -> {
-                startActivity(Intent(this, LicenseActivity::class.java))
+                startActivity(Intent(this, OssLicensesMenuActivity::class.java))
             }
             R.id.menu_source_code -> {
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/75py/Android-TemporaryBrightness")))
