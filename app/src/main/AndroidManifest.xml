@@ -36,11 +36,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".LicenseActivity"
-            android:label="@string/open_source_license"
-            android:parentActivityName=".MainActivity" />
-
         <service
             android:name=".TemporaryBrightnessTileService"
             android:icon="@drawable/ic_settings_brightness"

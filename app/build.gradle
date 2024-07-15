@@ -18,8 +18,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.cookpad.android.licensetools'
     id 'com.google.dagger.hilt.android'
+    id "com.google.android.gms.oss-licenses-plugin"
 }
 
 
@@ -62,11 +62,12 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
     implementation 'com.github.75py.Android-OverlayViewManager:overlayviewmanager:2.0.0-alpha2'
-    implementation 'com.github.75py.Android-OverlayViewManager:overlayviewmanager-opt-timber:2.0.0-alpha2'
 
     // Hilt
     implementation "com.google.dagger:hilt-android:2.51.1"
     kapt "com.google.dagger:hilt-android-compiler:2.51.1"
+
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.1.0'
 
     testImplementation 'junit:junit:4.13.2'
 
