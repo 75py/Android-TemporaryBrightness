@@ -14,4 +14,24 @@
  * limitations under the License.
  */
 
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+Properties localProperties = new Properties()
+localProperties.load(file('local.properties').newDataInputStream())
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 include ':app'

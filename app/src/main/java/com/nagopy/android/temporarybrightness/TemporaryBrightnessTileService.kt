@@ -16,7 +16,10 @@
 
 package com.nagopy.android.temporarybrightness
 
+import android.annotation.SuppressLint
+import android.app.PendingIntent
 import android.content.Intent
+import android.os.Build
 import android.service.quicksettings.Tile.*
 import android.service.quicksettings.TileService
 import com.nagopy.android.overlayviewmanager.OverlayViewManager
@@ -47,11 +50,29 @@ class TemporaryBrightnessTileService : TileService() {
                 tile.state = STATE_ACTIVE
 
                 // Close the Quick Settings panel
-                startActivityAndCollapse(Intent(this, DummyActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                val intent = Intent(this, DummyActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivityAndCollapseCompat(intent)
             }
         }
 
         tile.updateTile()
+    }
+
+    @SuppressLint("StartActivityAndCollapseDeprecated")
+    private fun startActivityAndCollapseCompat(intent: Intent) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startActivityAndCollapse(
+                PendingIntent.getActivity(
+                    this.applicationContext,
+                    0,
+                    intent,
+                    PendingIntent.FLAG_IMMUTABLE
+                )
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            startActivityAndCollapse(intent)
+        }
     }
 
     override fun onTileAdded() {
