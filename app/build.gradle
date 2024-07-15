@@ -61,7 +61,7 @@ dependencies {
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    implementation 'com.github.75py.Android-OverlayViewManager:overlayviewmanager:2.0.0-alpha2'
+    implementation 'com.github.75py.Android-OverlayViewManager:overlayviewmanager:2.0.0'
 
     // Hilt
     implementation "com.google.dagger:hilt-android:2.51.1"
